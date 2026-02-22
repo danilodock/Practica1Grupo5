@@ -19,7 +19,7 @@ def convertirUSD():
     try:
         usd = float(usd)
     except (ValueError, TypeError):
-        return jsonify({"error": "El valor debe ser numérico"}), 400
+        return jsonify({"error": "El valor debe ser numerico"}), 400
 
     # Validar que sea positivo
     if usd <= 0:
@@ -41,6 +41,8 @@ frases = [
 @app.route('/api/frase', methods=['GET'])
 def frase():
     return jsonify({"frase": random.choice(frases)})
+
+
 
 if __name__ == '__main__': 
     app.run(debug=True, host='0.0.0.0', port=8080)
