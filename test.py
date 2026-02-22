@@ -9,6 +9,16 @@ def request_convertirUSD(usd):
 respuesta = request_convertirUSD(586)
 print("Resultado de convertir USD a Euro es:", respuesta)
 
+# ## Para probar con el servicio puesto en nube
+# def request_convertirUSD(usd):
+#     url = 'https://gagrupo5-242065751485.us-central1.run.app/api/USDtoEUR'
+#     data = {"usd": usd}
+#     response = requests.post(url, json=data)
+#     return response.json()
+
+# respuesta = request_convertirUSD(586)
+# print("Resultado de convertir USD a Euro es:", respuesta)
+
 
 def request_frase():
     url = 'http://localhost:8080/api/frase'
