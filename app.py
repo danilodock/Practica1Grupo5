@@ -43,6 +43,19 @@ def frase():
     return jsonify({"frase": random.choice(frases)})
 
 
+#NUEVO GET PARA MODIFICAR REPOSITORIO MATRIZ
+@app.route('/api/weather', methods=['GET'])
+def get_weather():
+    lat = request.args.get("lat", default=35.0, type=float)
+    lon = request.args.get("lon", default=139.0, type=float)
+    url = f"https://api.open-meteo.com/v1/forecast?latitude={lat}&longitude={lon}&hourly=temperature_2m"
+    response = requests.get(url)
+    data = response.json()
+    return jsonify(data)
+
+
+
+
 
 if __name__ == '__main__': 
     app.run(debug=True, host='0.0.0.0', port=8080)

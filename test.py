@@ -50,6 +50,26 @@ if response.status_code == 200:
 else:
     print("Error al conectar con la API")
 
+##NUEVO GET PARA MODIFICAR REPOSITORIO MATRIZ
+def test_weather():
+    # Definir latitud y longitud (ejemplo: Tokio)
+    lat = 35.0
+    lon = 139.0
+    # Construir la URL de la API
+    url2 = f"https://api.open-meteo.com/v1/forecast?latitude={lat}&longitude={lon}&hourly=temperature_2m"
+    # Hacer la petición GET
+    response = requests.get(url2)
+    # Convertir la respuesta a JSON
+    data = response.json()
+    # Mostrar parte de la respuesta
+    print("Temperaturas por hora en Tokio:")
+    print(data["hourly"]["temperature_2m"][:10])  # primeras 10 horas
+
+# Ejecutar la función de prueba
+if __name__ == "__main__":
+    test_weather()
+
+
 
 # #Uso de API externa con argumentos de línea de comando
 # import argparse, requests
